@@ -2,11 +2,13 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
+import SignalBar 1.0
+
 ApplicationWindow {
-    visible: true
+    title: qsTr("Drone Shooter")
     width: 1024
     height: 600
-    title: qsTr("Drone Shooter")
+    visible: true
 
     // Left frame.
     Frame {
@@ -21,7 +23,7 @@ ApplicationWindow {
         }
 
         RoundButton {
-            text: qsTr("off all")
+            text: qsTr("Off All")
             width: 150
             height: 150
             anchors.horizontalCenter: parent.horizontalCenter
@@ -43,85 +45,61 @@ ApplicationWindow {
         anchors.bottom: parent.bottom
 
         GridLayout {
-            columns: 3
+            columns: 2
             anchors.fill: parent
 
             // Wi-Fi 1
             Label {
-                text: qsTr("Wi-Fi")
+                text: qsTr("Wi-Fi (2.4 - 2.5 GHz)")
             }
 
-            ProgressBar {
+            SignalBar {
                 Layout.fillWidth: true
-            }
-
-            Label {
-                text: qsTr("2.4 - 2.5")
             }
 
             // Wi-Fi 2
             Label {
-                text: qsTr("Wi-Fi")
+                text: qsTr("Wi-Fi (2.4 - 2.5 GHz)")
             }
 
-            ProgressBar {
+            SignalBar {
                 Layout.fillWidth: true
-            }
-
-            Label {
-                text: qsTr("2.4 - 2.5")
             }
 
             // Wi-Fi 3
             Label {
-                text: qsTr("Wi-Fi")
+                text: qsTr("Wi-Fi (5.5 - 5.8 GHz)")
             }
 
-            ProgressBar {
+            SignalBar {
                 Layout.fillWidth: true
-            }
-
-            Label {
-                text: qsTr("5.5 - 5.8")
             }
 
             // GPS
             Label {
-                text: qsTr("GPS")
+                text: qsTr("GPS (1575 MHz)")
             }
 
-            ProgressBar {
+            SignalBar {
                 Layout.fillWidth: true
-            }
-
-            Label {
-                text: qsTr("1575")
             }
 
             // RC 1
             Label {
-                text: qsTr("RC")
+                text: qsTr("RC (868 - 912 MHz)")
             }
 
-            ProgressBar {
+            SignalBar {
                 Layout.fillWidth: true
-            }
-
-            Label {
-                text: qsTr("868 - 912")
             }
 
             // RC 2
             Label {
-                text: qsTr("RC")
+                text: qsTr("RC (433 - 434 MHz)")
             }
 
-            ProgressBar {
+            SignalBar {
                 Layout.fillWidth: true
-            }
-
-            Label {
-                text: qsTr("433 - 434")
             }
         }
     }

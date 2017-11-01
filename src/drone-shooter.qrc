@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>qml/main.qml</file>
         <file>qtquickcontrols2.conf</file>
+        <file>qml/modules/SignalBar/signalbar.qml</file>
+        <file>qml/modules/SignalBar/qmldir</file>
     </qresource>
 </RCC>
