@@ -1,6 +1,7 @@
 #include "transmittercontroller.h"
 
-TransmitterController::TransmitterController()
+TransmitterController::TransmitterController(int id) :
+    m_id(id)
 {
 }
 

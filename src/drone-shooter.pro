@@ -34,4 +34,5 @@ DISTFILES +=
 
 HEADERS += \
     hardware-interface/transmittercontroller.h \
-    hardware-interface/transmittermanager.h
+    hardware-interface/transmittermanager.h \
+    transmitterid.h

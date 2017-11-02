@@ -2,17 +2,20 @@
 
 #include "transmittercontroller.h"
 
-#include <QList>
+#include <QHash>
 #include <QObject>
-#include <QSharedPointer>
 
 class TransmitterManager : public QObject
 {
     Q_OBJECT
+    Q_DISABLE_COPY(TransmitterManager)
 
 public:
-    explicit TransmitterManager(const QList<QSharedPointer<TransmitterController>> &controllers);
+    TransmitterManager();
+
+    bool addTransmitterController(TransmitterController *controller);
+    Q_INVOKABLE TransmitterController *getTransmitterController(int id);
 
 private:
-    Q_DISABLE_COPY(TransmitterManager)
+    QHash<int, TransmitterController *> m_controllers;
 };
