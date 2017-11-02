@@ -4,5 +4,7 @@
         <file>qtquickcontrols2.conf</file>
         <file>qml/modules/SignalBar/signalbar.qml</file>
         <file>qml/modules/SignalBar/qmldir</file>
+        <file>qml/modules/StandardPopup/popup.qml</file>
+        <file>qml/modules/StandardPopup/qmldir</file>
     </qresource>
 </RCC>

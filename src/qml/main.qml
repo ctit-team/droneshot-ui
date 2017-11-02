@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.3
 
 import Hardware.Transmitter 1.0
 import SignalBar 1.0
+import StandardPopup 1.0
 
 ApplicationWindow {
     title: qsTr("Drone Shooter")
@@ -24,7 +25,7 @@ ApplicationWindow {
         }
 
         RoundButton {
-            text: qsTr("Off All")
+            text: qsTr("Off")
             width: 150
             height: 150
             anchors.horizontalCenter: parent.horizontalCenter
@@ -35,6 +36,7 @@ ApplicationWindow {
             text: qsTr("Legal Notices")
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
+            onClicked: legalPopup.open()
         }
     }
 
@@ -109,5 +111,10 @@ ApplicationWindow {
                 Layout.fillWidth: true
             }
         }
+    }
+
+    // Legal Popup
+    StandardPopup {
+        id: legalPopup
     }
 }
