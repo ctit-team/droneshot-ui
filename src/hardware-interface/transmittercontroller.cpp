@@ -11,4 +11,5 @@ void TransmitterController::setUtilization(int value)
 
 int TransmitterController::utilization()
 {
+    return 0;
 }

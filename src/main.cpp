@@ -92,7 +92,9 @@ static bool setUpTransmitterManager(TransmitterManager &manager)
 
 static void registerQmlTypes()
 {
-    qmlRegisterUncreatableMetaObject(TransmitterID::staticMetaObject, "th.co.ctit.droneshot", 1, 0, "TransmitterID", "Access to enum only");
+    qmlRegisterInterface<TransmitterController>("TransmitterController");
+
+    qmlRegisterUncreatableMetaObject(TransmitterID::staticMetaObject, "Hardware.Transmitter", 1, 0, "TransmitterID", "Access to enum only");
 }
 
 int main(int argc, char *argv[])

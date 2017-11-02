@@ -2,6 +2,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
+import Hardware.Transmitter 1.0
 import SignalBar 1.0
 
 ApplicationWindow {
@@ -54,6 +55,7 @@ ApplicationWindow {
             }
 
             SignalBar {
+                value: transmitterManager.getTransmitterController(TransmitterID.WiFi1).utilization
                 Layout.fillWidth: true
             }
 
@@ -63,6 +65,7 @@ ApplicationWindow {
             }
 
             SignalBar {
+                value: transmitterManager.getTransmitterController(TransmitterID.WiFi2).utilization
                 Layout.fillWidth: true
             }
 
@@ -72,6 +75,7 @@ ApplicationWindow {
             }
 
             SignalBar {
+                value: transmitterManager.getTransmitterController(TransmitterID.WiFi3).utilization
                 Layout.fillWidth: true
             }
 
@@ -81,6 +85,7 @@ ApplicationWindow {
             }
 
             SignalBar {
+                value: transmitterManager.getTransmitterController(TransmitterID.GPS).utilization
                 Layout.fillWidth: true
             }
 
@@ -90,6 +95,7 @@ ApplicationWindow {
             }
 
             SignalBar {
+                value: transmitterManager.getTransmitterController(TransmitterID.RC1).utilization
                 Layout.fillWidth: true
             }
 
@@ -99,6 +105,7 @@ ApplicationWindow {
             }
 
             SignalBar {
+                value: transmitterManager.getTransmitterController(TransmitterID.RC2).utilization
                 Layout.fillWidth: true
             }
         }
