@@ -19,4 +19,13 @@ Popup {
     exit: Transition {
         SmoothedAnimation { property: "y"; from: 0; to: -control.height; velocity: 1200 }
     }
+
+    Item {
+        RoundButton {
+            x: -(width / 2 + control.leftPadding)
+            y: control.availableHeight - (height / 2) + control.bottomPadding
+            width: 200
+            height: 200
+        }
+    }
 }
