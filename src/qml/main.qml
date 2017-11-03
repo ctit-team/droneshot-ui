@@ -3,6 +3,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
 import Hardware.Transmitter 1.0
+import LegalPopup 1.0
 import SignalBar 1.0
 import StandardPopup 1.0
 
@@ -22,6 +23,7 @@ ApplicationWindow {
         Label {
             text: qsTr("DRONE SHOT")
             anchors.horizontalCenter: parent.horizontalCenter
+            font.bold: true
         }
 
         RoundButton {
@@ -114,7 +116,7 @@ ApplicationWindow {
     }
 
     // Legal Popup
-    StandardPopup {
+    LegalPopup {
         id: legalPopup
     }
 }
