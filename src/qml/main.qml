@@ -59,7 +59,7 @@ ApplicationWindow {
             }
 
             SignalBar {
-                value: transmitterManager.getTransmitterController(TransmitterID.WiFi1).utilization
+                transmitterController: transmitterManager.getTransmitterController(TransmitterID.WiFi1)
                 Layout.fillWidth: true
             }
 
@@ -69,7 +69,7 @@ ApplicationWindow {
             }
 
             SignalBar {
-                value: transmitterManager.getTransmitterController(TransmitterID.WiFi2).utilization
+                transmitterController: transmitterManager.getTransmitterController(TransmitterID.WiFi2)
                 Layout.fillWidth: true
             }
 
@@ -79,7 +79,7 @@ ApplicationWindow {
             }
 
             SignalBar {
-                value: transmitterManager.getTransmitterController(TransmitterID.WiFi3).utilization
+                transmitterController: transmitterManager.getTransmitterController(TransmitterID.WiFi3)
                 Layout.fillWidth: true
             }
 
@@ -89,7 +89,7 @@ ApplicationWindow {
             }
 
             SignalBar {
-                value: transmitterManager.getTransmitterController(TransmitterID.GPS).utilization
+                transmitterController: transmitterManager.getTransmitterController(TransmitterID.GPS)
                 Layout.fillWidth: true
             }
 
@@ -99,7 +99,7 @@ ApplicationWindow {
             }
 
             SignalBar {
-                value: transmitterManager.getTransmitterController(TransmitterID.RC1).utilization
+                transmitterController: transmitterManager.getTransmitterController(TransmitterID.RC1)
                 Layout.fillWidth: true
             }
 
@@ -109,7 +109,7 @@ ApplicationWindow {
             }
 
             SignalBar {
-                value: transmitterManager.getTransmitterController(TransmitterID.RC2).utilization
+                transmitterController: transmitterManager.getTransmitterController(TransmitterID.RC2)
                 Layout.fillWidth: true
             }
         }

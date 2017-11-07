@@ -1,9 +1,13 @@
-import QtQuick 2.0
+import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Universal 2.2
 
+import Hardware.Transmitter 1.0
+
 Item {
-    property int value: 0
+    property TransmitterController transmitterController
+
+    signal clicked;
 
     id: control
     implicitHeight: 50
@@ -14,12 +18,11 @@ Item {
         id: bar
         from: 0
         to: 100
-        value: parent.value
-
+        value: transmitterController.utilization
         anchors.fill: parent
 
         background: Rectangle {
-            color: parent.value ? "#333333" : Universal.color(Universal.Red)
+            color: transmitterController.utilization ? "#333333" : Universal.color(Universal.Red)
         }
 
         contentItem: Item {
@@ -34,8 +37,14 @@ Item {
     // Percentage text.
     Label {
         id: percentText
-        text: parent.value.toString() + "%"
+        text: transmitterController.utilization.toString() + "%"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
+    }
+
+    // Mouse Handler.
+    MouseArea {
+        anchors.fill: parent
+        onClicked: control.clicked()
     }
 }

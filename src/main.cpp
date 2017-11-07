@@ -92,7 +92,7 @@ static bool setUpTransmitterManager(TransmitterManager &manager)
 
 static void registerQmlTypes()
 {
-    qmlRegisterInterface<TransmitterController>("TransmitterController");
+    qmlRegisterUncreatableType<TransmitterController>("Hardware.Transmitter", 1, 0, "TransmitterController", "Can instantiate from C++ only");
 
     qmlRegisterUncreatableMetaObject(TransmitterID::staticMetaObject, "Hardware.Transmitter", 1, 0, "TransmitterID", "Access to enum only");
 }
