@@ -11,11 +11,12 @@ Popup {
     y: -height
     width: parent.width
     height: parent.height
+    parent: ApplicationWindow.overlay
     dim: false
     modal: true
     focus: true
-    closePolicy: Popup.CloseOnEscape
     clip: true
+    closePolicy: Popup.CloseOnEscape
 
     enter: Transition {
         SmoothedAnimation { property: "y"; from: -control.height; to: 0; velocity: 1200 }

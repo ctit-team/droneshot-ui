@@ -39,6 +39,10 @@ ApplicationWindow {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
             onClicked: legalPopup.open()
+
+            LegalPopup {
+                id: legalPopup
+            }
         }
     }
 
@@ -113,10 +117,5 @@ ApplicationWindow {
                 Layout.fillWidth: true
             }
         }
-    }
-
-    // Legal Popup
-    LegalPopup {
-        id: legalPopup
     }
 }
