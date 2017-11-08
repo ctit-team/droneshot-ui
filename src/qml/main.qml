@@ -6,6 +6,7 @@ import Hardware.Transmitter 1.0
 import LegalPopup 1.0
 import SignalBar 1.0
 import StandardPopup 1.0
+import TransmitterConfigurator 1.0
 
 ApplicationWindow {
     title: qsTr("Drone Shooter")
@@ -63,8 +64,16 @@ ApplicationWindow {
             }
 
             SignalBar {
+                id: wifi1Bar
                 transmitterController: transmitterManager.getTransmitterController(TransmitterID.WiFi1)
+                onClicked: wifi1Configurator.open()
                 Layout.fillWidth: true
+
+                TransmitterConfigurator {
+                    id: wifi1Configurator
+                    title: qsTr("Wi-Fi (2.4 - 2.5 GHz)")
+                    transmitterController: wifi1Bar.transmitterController
+                }
             }
 
             // Wi-Fi 2
@@ -73,8 +82,16 @@ ApplicationWindow {
             }
 
             SignalBar {
+                id: wifi2Bar
                 transmitterController: transmitterManager.getTransmitterController(TransmitterID.WiFi2)
+                onClicked: wifi2Configurator.open()
                 Layout.fillWidth: true
+
+                TransmitterConfigurator {
+                    id: wifi2Configurator
+                    title: qsTr("Wi-Fi (2.4 - 2.5 GHz)")
+                    transmitterController: wifi2Bar.transmitterController
+                }
             }
 
             // Wi-Fi 3
@@ -83,8 +100,16 @@ ApplicationWindow {
             }
 
             SignalBar {
+                id: wifi3Bar
                 transmitterController: transmitterManager.getTransmitterController(TransmitterID.WiFi3)
+                onClicked: wifi3Configurator.open()
                 Layout.fillWidth: true
+
+                TransmitterConfigurator {
+                    id: wifi3Configurator
+                    title: qsTr("Wi-Fi (5.5 - 5.8 GHz)")
+                    transmitterController: wifi3Bar.transmitterController
+                }
             }
 
             // GPS
@@ -93,8 +118,16 @@ ApplicationWindow {
             }
 
             SignalBar {
+                id: gpsBar
                 transmitterController: transmitterManager.getTransmitterController(TransmitterID.GPS)
+                onClicked: gpsConfigurator.open()
                 Layout.fillWidth: true
+
+                TransmitterConfigurator {
+                    id: gpsConfigurator
+                    title: qsTr("GPS (1575 MHz)")
+                    transmitterController: gpsBar.transmitterController
+                }
             }
 
             // RC 1
@@ -103,8 +136,16 @@ ApplicationWindow {
             }
 
             SignalBar {
+                id: rc1Bar
                 transmitterController: transmitterManager.getTransmitterController(TransmitterID.RC1)
+                onClicked: rc1Configurator.open()
                 Layout.fillWidth: true
+
+                TransmitterConfigurator {
+                    id: rc1Configurator
+                    title: qsTr("RC (868 - 912 MHz)")
+                    transmitterController: rc1Bar.transmitterController
+                }
             }
 
             // RC 2
@@ -113,8 +154,16 @@ ApplicationWindow {
             }
 
             SignalBar {
+                id: rc2Bar
                 transmitterController: transmitterManager.getTransmitterController(TransmitterID.RC2)
+                onClicked: rc2Configurator.open()
                 Layout.fillWidth: true
+
+                TransmitterConfigurator {
+                    id: rc2Configurator
+                    title: qsTr("RC (433 - 434 MHz)")
+                    transmitterController: rc2Bar.transmitterController
+                }
             }
         }
     }

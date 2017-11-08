@@ -23,4 +23,5 @@ signals:
 
 private:
     int m_id;
+    int m_util;
 };

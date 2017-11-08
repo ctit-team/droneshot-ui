@@ -11,5 +11,7 @@
         <file>resources/legal-notices.txt</file>
         <file>qml/modules/File/module.js</file>
         <file>qml/modules/File/qmldir</file>
+        <file>qml/modules/TransmitterConfigurator/popup.qml</file>
+        <file>qml/modules/TransmitterConfigurator/qmldir</file>
     </qresource>
 </RCC>
