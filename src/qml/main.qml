@@ -8,6 +8,8 @@ import SignalBar 1.0
 import StandardPopup 1.0
 import TransmitterConfigurator 1.0
 
+import "main.js" as Presenter
+
 ApplicationWindow {
     title: qsTr("Drone Shooter")
     width: 1024
@@ -31,6 +33,7 @@ ApplicationWindow {
             text: qsTr("Off")
             width: 150
             height: 150
+            onClicked: Presenter.turnOffAllTransmitters()
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
         }
