@@ -22,7 +22,7 @@ Item {
         anchors.fill: parent
 
         background: Rectangle {
-            color: transmitterController.utilization ? "#333333" : Universal.color(Universal.Red)
+            color: "#333333"
         }
 
         contentItem: Item {
