@@ -14,5 +14,6 @@
         <file>qml/modules/TransmitterConfigurator/popup.qml</file>
         <file>qml/modules/TransmitterConfigurator/qmldir</file>
         <file>qml/main.js</file>
+        <file>resources/icons/multiply.svg</file>
     </qresource>
 </RCC>

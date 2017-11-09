@@ -1,3 +1,4 @@
+import QtGraphicalEffects 1.0
 import QtQuick 2.7
 import QtQuick.Controls 2.2
 
@@ -27,28 +28,58 @@ Popup {
     }
 
     Item {
-        Label {
-            id: title
-            anchors.bottom: closeButton.bottom
-            font.pointSize: 40
-            font.bold: true
+        Rectangle {
+            id: titleBar
+            x: -control.leftPadding
+            y: -control.topPadding
+            width: control.width
+            height: 100
+            color: "#303030"
+
+            Label {
+                id: title
+                font.pointSize: 40
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
+                anchors.leftMargin: control.leftPadding
+            }
+
+            Item {
+                id: closeButton
+                width: 60
+                height: 60
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                anchors.rightMargin: control.rightPadding
+
+                Image {
+                    id: closeImage
+                    source: "qrc:/resources/icons/multiply.svg"
+                    sourceSize.width: width
+                    sourceSize.height: height
+                    anchors.fill: parent
+                }
+
+                ColorOverlay {
+                    source: closeImage
+                    color: "#FFFFFF"
+                    anchors.fill: closeImage
+                }
+            }
+
+            MouseArea {
+                onClicked: control.close()
+                anchors.fill: closeButton
+            }
         }
 
         Item {
             id: content
             width: control.availableWidth
-            height: control.availableHeight - control.topPadding - title.height
-            anchors.top: title.bottom
+            height: control.availableHeight - (titleBar.height - control.topPadding)
+            anchors.top: titleBar.bottom
             anchors.topMargin: control.topPadding
-        }
-
-        RoundButton {
-            id: closeButton
-            x: control.availableWidth + control.rightPadding - width / 2
-            y: -(height / 2 + control.topPadding)
-            width: 150
-            height: 150
-            onClicked: control.close()
         }
     }
 }
