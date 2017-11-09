@@ -33,7 +33,7 @@ Popup {
             x: -control.leftPadding
             y: -control.topPadding
             width: control.width
-            height: 100
+            height: 80
             color: "#303030"
 
             Label {
