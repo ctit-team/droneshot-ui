@@ -24,13 +24,13 @@ ApplicationWindow {
         anchors.bottom: parent.bottom
 
         Label {
-            text: qsTr("DRONE SHOT")
+            text: qsTr("DRONE SHOT 1.0")
             anchors.horizontalCenter: parent.horizontalCenter
             font.bold: true
         }
 
         RoundButton {
-            text: qsTr("Off")
+            text: qsTr("OFF")
             width: 150
             height: 150
             onClicked: Presenter.turnOffAllTransmitters()

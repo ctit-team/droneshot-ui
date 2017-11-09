@@ -33,7 +33,7 @@ StandardPopup {
             Layout.fillHeight: true
 
             RoundButton {
-                text: transmitterController.utilization ? qsTr("Off") : qsTr("On")
+                text: transmitterController.utilization ? qsTr("OFF") : qsTr("ON")
                 width: 250
                 height: 250
                 onClicked: transmitterController.utilization = transmitterController.utilization ? 0 : 100
