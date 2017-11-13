@@ -15,6 +15,7 @@ ApplicationWindow {
     width: 1024
     height: 600
     visible: true
+    flags: Qt.FramelessWindowHint
 
     // Left frame.
     Frame {
