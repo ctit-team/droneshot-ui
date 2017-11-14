@@ -16,7 +16,6 @@ Popup {
     dim: false
     modal: true
     focus: true
-    clip: true
     closePolicy: Popup.CloseOnEscape
 
     enter: Transition {
@@ -30,9 +29,9 @@ Popup {
     Item {
         Rectangle {
             id: titleBar
-            x: -control.leftPadding
-            y: -control.topPadding
-            width: control.width
+            x: -(control.leftPadding - 1)
+            y: -(control.topPadding - 1)
+            width: control.width - 2
             height: 80
             color: "#303030"
 
