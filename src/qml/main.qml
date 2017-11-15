@@ -41,6 +41,8 @@ ApplicationWindow {
 
         Button {
             text: qsTr("Legal Notices")
+            width: 150
+            height: 50
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
             onClicked: legalPopup.open()
