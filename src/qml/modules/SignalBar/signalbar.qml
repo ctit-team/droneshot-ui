@@ -5,10 +5,17 @@ import QtQuick.Controls.Universal 2.2
 import Hardware.Transmitter 1.0
 
 Item {
+    // Properties.
+    property color activeBackgroundColor: "#666666"
+    property color activeForegroundColor: Universal.color(Universal.Green)
+    property color backgroundColor: "#333333"
+    property color foregroundColor: Universal.color(Universal.Emerald)
     property TransmitterController transmitterController
 
+    // Signals.
     signal clicked;
 
+    // Defaults.
     id: control
     implicitHeight: 50
     implicitWidth: 100
@@ -22,14 +29,16 @@ Item {
         anchors.fill: parent
 
         background: Rectangle {
-            color: "#333333"
+            id: background
+            color: control.backgroundColor
         }
 
         contentItem: Item {
             Rectangle {
+                id: progress
                 width: bar.visualPosition * parent.width
                 height: parent.height
-                color: Universal.color(Universal.Emerald)
+                color: control.foregroundColor
             }
         }
     }
@@ -46,5 +55,15 @@ Item {
     MouseArea {
         anchors.fill: parent
         onClicked: control.clicked()
+
+        onPressed: {
+            background.color = control.activeBackgroundColor
+            progress.color = control.activeForegroundColor
+        }
+
+        onReleased: {
+            background.color = control.backgroundColor
+            progress.color = control.foregroundColor
+        }
     }
 }
