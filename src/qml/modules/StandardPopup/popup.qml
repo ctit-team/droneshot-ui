@@ -43,32 +43,31 @@ Popup {
                 anchors.leftMargin: control.leftPadding
             }
 
-            Item {
+            Button {
                 id: closeButton
-                width: 60
-                height: 60
+                width: 60 + leftPadding + rightPadding
+                height: 60 + topPadding + bottomPadding
+                flat: true
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right
                 anchors.rightMargin: control.rightPadding
-
-                Image {
-                    id: closeImage
-                    source: "qrc:/resources/icons/multiply.svg"
-                    sourceSize.width: width
-                    sourceSize.height: height
-                    anchors.fill: parent
-                }
-
-                ColorOverlay {
-                    source: closeImage
-                    color: "#FFFFFF"
-                    anchors.fill: closeImage
-                }
-            }
-
-            MouseArea {
                 onClicked: control.close()
-                anchors.fill: closeButton
+
+                contentItem: Item {
+                    Image {
+                        id: closeImage
+                        source: "qrc:/resources/icons/multiply.svg"
+                        sourceSize.width: width
+                        sourceSize.height: height
+                        anchors.fill: parent
+                    }
+
+                    ColorOverlay {
+                        source: closeImage
+                        color: "#FFFFFF"
+                        anchors.fill: closeImage
+                    }
+                }
             }
         }
 
