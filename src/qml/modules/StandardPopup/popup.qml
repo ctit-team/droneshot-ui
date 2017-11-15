@@ -8,22 +8,21 @@ Popup {
     property alias title: title.text
 
     id: control
-    x: 0
-    y: -height
     width: parent.width
     height: parent.height
     parent: ApplicationWindow.overlay
     dim: false
     modal: true
     focus: true
+    opacity: 0.0
     closePolicy: Popup.CloseOnEscape
 
     enter: Transition {
-        SmoothedAnimation { property: "y"; from: -control.height; to: 0; velocity: 1200 }
+        NumberAnimation { property: "opacity"; from: 0.0; to: 1.0 }
     }
 
     exit: Transition {
-        SmoothedAnimation { property: "y"; from: 0; to: -control.height; velocity: 1200 }
+        NumberAnimation { property: "opacity"; from: 1.0; to: 0.0 }
     }
 
     Item {
