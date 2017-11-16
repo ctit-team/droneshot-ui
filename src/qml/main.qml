@@ -1,3 +1,4 @@
+import QtGraphicalEffects 1.0
 import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
@@ -24,10 +25,16 @@ ApplicationWindow {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
 
-        Label {
-            text: qsTr("DRONE SHOT 1.0")
+        Image {
+            id: logo
+            source: "qrc:/resources/images/logo-medium.png"
             anchors.horizontalCenter: parent.horizontalCenter
-            font.bold: true
+        }
+
+        ColorOverlay {
+            source: logo
+            color: "#FFFFFF"
+            anchors.fill: logo
         }
 
         RoundButton {

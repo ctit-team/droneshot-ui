@@ -15,5 +15,6 @@
         <file>qml/modules/TransmitterConfigurator/qmldir</file>
         <file>qml/main.js</file>
         <file>resources/icons/multiply.svg</file>
+        <file>resources/images/logo-medium.png</file>
     </qresource>
 </RCC>
