@@ -17,7 +17,7 @@ SOURCES += main.cpp \
     hardware-interface/transmittermanager.cpp
 
 RESOURCES += \
-    drone-shooter.qrc
+    droneshot-ui.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH += $$PWD/qml/modules/
