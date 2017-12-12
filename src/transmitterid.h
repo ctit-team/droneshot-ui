@@ -7,6 +7,7 @@ Q_NAMESPACE
 
 enum Value
 {
+    Unknown,
     WiFi1, // 2.4 - 2.5 lower
     WiFi2, // 2.4 - 2.5 upper
     WiFi3, // 5.5 - 5.8

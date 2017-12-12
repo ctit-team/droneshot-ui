@@ -1,6 +1,7 @@
 #include "transmittercontroller.h"
 
-TransmitterController::TransmitterController(int id) :
+TransmitterController::TransmitterController(int id, DaemonConnection *daemon) :
+    m_daemon(daemon),
     m_id(id),
     m_util(0)
 {

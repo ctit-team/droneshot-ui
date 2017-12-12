@@ -1,3 +1,4 @@
+#include "daemonconnection.h"
 #include "transmitterid.h"
 
 #include <hardware-interface/transmittercontroller.h>
@@ -7,34 +8,9 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
-static TransmitterController *createWiFi1TransmitterController()
+static TransmitterController *createTransmitterController(int id, DaemonConnection *daemon)
 {
-    return new TransmitterController(TransmitterID::WiFi1);
-}
-
-static TransmitterController *createWiFi2TransmitterController()
-{
-    return new TransmitterController(TransmitterID::WiFi2);
-}
-
-static TransmitterController *createWiFi3TransmitterController()
-{
-    return new TransmitterController(TransmitterID::WiFi3);
-}
-
-static TransmitterController *creatGPSTransmitterController()
-{
-    return new TransmitterController(TransmitterID::GPS);
-}
-
-static TransmitterController *createRC1TransmitterController()
-{
-    return new TransmitterController(TransmitterID::RC1);
-}
-
-static TransmitterController *createRC2TransmitterController()
-{
-    return new TransmitterController(TransmitterID::RC2);
+    return new TransmitterController(id, daemon);
 }
 
 static bool registerTransmitterController(TransmitterManager &manager, TransmitterController *controller)
@@ -47,42 +23,42 @@ static bool registerTransmitterController(TransmitterManager &manager, Transmitt
     return true;
 }
 
-static bool setUpTransmitterManager(TransmitterManager &manager)
+static bool setUpTransmitterManager(TransmitterManager &manager, DaemonConnection &daemon)
 {
     TransmitterController *controller;
 
     // WiFi 1.
-    controller = createWiFi1TransmitterController();
+    controller = createTransmitterController(TransmitterID::WiFi1, &daemon);
     if (!controller || !registerTransmitterController(manager, controller)) {
         return false;
     }
 
     // WiFi 2.
-    controller = createWiFi2TransmitterController();
+    controller = createTransmitterController(TransmitterID::WiFi2, &daemon);
     if (!controller || !registerTransmitterController(manager, controller)) {
         return false;
     }
 
     // WiFi 3.
-    controller = createWiFi3TransmitterController();
+    controller = createTransmitterController(TransmitterID::WiFi3, &daemon);
     if (!controller || !registerTransmitterController(manager, controller)) {
         return false;
     }
 
     // GPS.
-    controller = creatGPSTransmitterController();
+    controller = createTransmitterController(TransmitterID::GPS, &daemon);
     if (!controller || !registerTransmitterController(manager, controller)) {
         return false;
     }
 
     // RC 1.
-    controller = createRC1TransmitterController();
+    controller = createTransmitterController(TransmitterID::RC1, &daemon);
     if (!controller || !registerTransmitterController(manager, controller)) {
         return false;
     }
 
     // RC 2.
-    controller = createRC2TransmitterController();
+    controller = createTransmitterController(TransmitterID::RC2, &daemon);
     if (!controller || !registerTransmitterController(manager, controller)) {
         return false;
     }
@@ -99,12 +75,19 @@ static void registerQmlTypes()
 
 int main(int argc, char *argv[])
 {
-    // Setup application.
+    // Setup Application.
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+
+    // Initialize Application.
     QGuiApplication app(argc, argv);
 
+    DaemonConnection daemonConnection;
+    if (!daemonConnection.connect("/tmp/droneshot"))
+        return -1;
+
     TransmitterManager transmitterManager;
-    setUpTransmitterManager(transmitterManager);
+    if (!setUpTransmitterManager(transmitterManager, daemonConnection))
+        return -1;
 
     registerQmlTypes();
 

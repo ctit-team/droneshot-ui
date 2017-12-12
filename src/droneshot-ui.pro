@@ -14,7 +14,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     hardware-interface/transmittercontroller.cpp \
-    hardware-interface/transmittermanager.cpp
+    hardware-interface/transmittermanager.cpp \
+    daemonconnection.cpp
 
 RESOURCES += \
     droneshot-ui.qrc
@@ -35,4 +36,5 @@ DISTFILES +=
 HEADERS += \
     hardware-interface/transmittercontroller.h \
     hardware-interface/transmittermanager.h \
-    transmitterid.h
+    transmitterid.h \
+    daemonconnection.h
