@@ -11,6 +11,8 @@ public:
 
     bool connect(const QString &name);
 
+    bool setTransmitterUtilization(int transmitterId, int utilization);
+
 private:
     QLocalSocket m_socket;
 };

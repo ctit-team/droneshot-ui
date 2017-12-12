@@ -9,9 +9,11 @@ TransmitterController::TransmitterController(int id, DaemonConnection *daemon) :
 
 void TransmitterController::setUtilization(int value)
 {
-    if (value < 0 || value > 100) {
+    if (value < 0 || value > 100 || value == m_util)
         return;
-    }
+
+    if (!m_daemon->setTransmitterUtilization(m_id, value))
+        return;
 
     int prev = m_util;
     m_util = value;
