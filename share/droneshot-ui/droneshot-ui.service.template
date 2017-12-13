@@ -1,0 +1,11 @@
+[Unit]
+Description=Drone Shot User Interface
+
+[Install]
+WantedBy=graphical.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/weston-launch --user USER
+WorkingDirectory=HOME
+KillMode=process
