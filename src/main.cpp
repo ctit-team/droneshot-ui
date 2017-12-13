@@ -4,9 +4,17 @@
 #include <hardware-interface/transmittercontroller.h>
 #include <hardware-interface/transmittermanager.h>
 
+#include <QtGlobal>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+
+#include <errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+static FILE *logFile;
 
 static TransmitterController *createTransmitterController(int id, DaemonConnection *daemon)
 {
@@ -73,9 +81,39 @@ static void registerQmlTypes()
     qmlRegisterUncreatableMetaObject(TransmitterID::staticMetaObject, "Hardware.Transmitter", 1, 0, "TransmitterID", "Access to enum only");
 }
 
+static void logMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &message)
+{
+    Q_UNUSED(context);
+
+    fprintf(logFile, "%s\n", message.toLocal8Bit().constData());
+
+    if (type == QtFatalMsg)
+        abort();
+}
+
+static void setUpLogging(void)
+{
+    // Get file name.
+    auto fileName = QString::fromLocal8Bit(qgetenv("DRONESHOT_UI_LOGFILE"));
+    if (fileName.isEmpty())
+        return;
+
+    // Open file.
+    logFile = fopen(fileName.toLocal8Bit().constData(), "a");
+    if (!logFile) {
+        auto errorCode = errno;
+        qWarning("Failed to open %s for logging: %s", qUtf8Printable(fileName), strerror(errorCode));
+        return;
+    }
+
+    // Install Handler.
+    qInstallMessageHandler(logMessageHandler);
+}
+
 int main(int argc, char *argv[])
 {
     // Setup Application.
+    setUpLogging();
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     // Initialize Application.
