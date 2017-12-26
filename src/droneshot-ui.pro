@@ -37,4 +37,5 @@ HEADERS += \
     hardware-interface/transmittercontroller.h \
     hardware-interface/transmittermanager.h \
     transmitterid.h \
-    daemonconnection.h
+    daemonconnection.h \
+    hardware-interface/transmittersstate.h

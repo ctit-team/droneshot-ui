@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.3
 
 import Hardware.Transmitter 1.0
 import LegalPopup 1.0
+import PowerSwitch 1.0
 import SignalBar 1.0
 import StandardPopup 1.0
 import TransmitterConfigurator 1.0
@@ -12,7 +13,7 @@ import TransmitterConfigurator 1.0
 import "main.js" as Presenter
 
 ApplicationWindow {
-    title: qsTr("Drone Shooter")
+    title: qsTr("Drone Shot")
     width: 1024
     height: 600
     visible: true
@@ -37,13 +38,14 @@ ApplicationWindow {
             anchors.fill: logo
         }
 
-        RoundButton {
-            text: qsTr("OFF")
+        PowerSwitch {
             width: 150
             height: 150
-            onClicked: Presenter.turnOffAllTransmitters()
+            state: transmitterManager.transmittersState !== TransmittersState.AllOff
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
+            onPowerOn: Presenter.setTransmittersUtilization(10)
+            onPowerOff: Presenter.setTransmittersUtilization(0)
         }
 
         Button {

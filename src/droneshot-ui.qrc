@@ -16,5 +16,7 @@
         <file>qml/main.js</file>
         <file>resources/icons/multiply.svg</file>
         <file>resources/images/logo-medium.png</file>
+        <file>qml/modules/PowerSwitch/switch.qml</file>
+        <file>qml/modules/PowerSwitch/qmldir</file>
     </qresource>
 </RCC>

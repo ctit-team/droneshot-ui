@@ -1,8 +1,9 @@
 #include "daemonconnection.h"
 #include "transmitterid.h"
 
-#include <hardware-interface/transmittercontroller.h>
-#include <hardware-interface/transmittermanager.h>
+#include "hardware-interface/transmittercontroller.h"
+#include "hardware-interface/transmittermanager.h"
+#include "hardware-interface/transmittersstate.h"
 
 #include <QtGlobal>
 #include <QGuiApplication>
@@ -79,6 +80,7 @@ static void registerQmlTypes()
     qmlRegisterUncreatableType<TransmitterController>("Hardware.Transmitter", 1, 0, "TransmitterController", "Can instantiate from C++ only");
 
     qmlRegisterUncreatableMetaObject(TransmitterID::staticMetaObject, "Hardware.Transmitter", 1, 0, "TransmitterID", "Access to enum only");
+    qmlRegisterUncreatableMetaObject(TransmittersState::staticMetaObject, "Hardware.Transmitter", 1, 0, "TransmittersState", "Access to enum only");
 }
 
 static void logMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &message)
@@ -114,7 +116,6 @@ int main(int argc, char *argv[])
 {
     // Setup Application.
     setUpLogging();
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     // Initialize Application.
     QGuiApplication app(argc, argv);

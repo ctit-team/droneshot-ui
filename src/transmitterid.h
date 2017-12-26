@@ -3,6 +3,7 @@
 #include <QObject>
 
 namespace TransmitterID {
+
 Q_NAMESPACE
 
 enum Value
@@ -15,6 +16,7 @@ enum Value
     RC1,   // 868 - 912
     RC2    // 433 - 434
 };
+
 Q_ENUM_NS(Value)
 
 }
