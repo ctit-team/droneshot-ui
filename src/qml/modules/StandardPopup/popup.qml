@@ -3,10 +3,6 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 
 Popup {
-    default property alias contents: content.data
-
-    property alias title: title.text
-
     id: control
     width: parent.width
     height: parent.height
@@ -25,6 +21,9 @@ Popup {
         NumberAnimation { property: "opacity"; from: 1.0; to: 0.0 }
     }
 
+    default property alias contents: content.data
+    property alias title: title.text
+
     Item {
         Rectangle {
             id: titleBar
@@ -36,7 +35,7 @@ Popup {
 
             Label {
                 id: title
-                font.pointSize: 30
+                font.pointSize: 40
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: parent.left
