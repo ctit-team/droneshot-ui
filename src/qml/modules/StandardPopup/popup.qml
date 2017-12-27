@@ -35,7 +35,7 @@ Popup {
 
             Label {
                 id: title
-                font.pointSize: 40
+                font.pointSize: 30
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: parent.left
