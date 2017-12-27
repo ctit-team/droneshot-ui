@@ -1,4 +1,5 @@
 #include "daemonconnection.h"
+#include "systeminformation.h"
 #include "transmitterid.h"
 
 #include "hardware-interface/transmittercontroller.h"
@@ -119,6 +120,7 @@ int main(int argc, char *argv[])
 
     // Initialize Application.
     QGuiApplication app(argc, argv);
+    SystemInformation systemInformation;
 
     DaemonConnection daemonConnection;
     if (!daemonConnection.connect("/tmp/droneshot"))
@@ -135,6 +137,7 @@ int main(int argc, char *argv[])
 
     engine.addImportPath("qrc:/qml/modules/");
 
+    engine.rootContext()->setContextProperty("systemInformation", &systemInformation);
     engine.rootContext()->setContextProperty("transmitterManager", &transmitterManager);
 
     engine.load(QUrl(QLatin1String("qrc:/qml/main.qml")));

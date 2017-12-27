@@ -1,7 +1,11 @@
-Copyright © 2017 Creative Thinking Innovation Technology Co., Ltd. All rights reserved.
+Copyright © 2017 Creative Thinking Innovation Technology Co., Ltd.
+
+This software is licensed to you under GPL version 3, which source code is already in the system.
 
 This software is running on unmodified Arch Linux™, which trademark is owned by Arch Linux Project Lead.
 
 The icons in this application is designed by Smashicons from Flaticon.
 
-The Qt Toolkit is Copyright © 2016 The Qt Company Ltd. and other contributors, licensed under LGPL version 3. See Arch Linux™ documentation for how to replace this library.
+The C library for Raspberry Pi is Copyright © 2011-2013 Mike McCauley.
+
+The Qt Toolkit is Copyright © 2016 The Qt Company Ltd. and other contributors.

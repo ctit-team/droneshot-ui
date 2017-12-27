@@ -73,7 +73,7 @@ Popup {
         Item {
             id: content
             width: control.availableWidth
-            height: control.availableHeight - (titleBar.height - control.topPadding)
+            height: control.availableHeight - (titleBar.height - control.topPadding) - control.topPadding
             anchors.top: titleBar.bottom
             anchors.topMargin: control.topPadding
         }

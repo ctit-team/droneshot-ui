@@ -3,8 +3,8 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
+import AboutPopup 1.0
 import Hardware.Transmitter 1.0
-import LegalPopup 1.0
 import PowerSwitch 1.0
 import SignalBar 1.0
 import StandardPopup 1.0
@@ -49,15 +49,15 @@ ApplicationWindow {
         }
 
         Button {
-            text: qsTr("Legal Notices")
+            text: qsTr("About...")
             width: 150
             height: 50
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
-            onClicked: legalPopup.open()
+            onClicked: aboutPopup.open()
 
-            LegalPopup {
-                id: legalPopup
+            AboutPopup {
+                id: aboutPopup
             }
         }
     }

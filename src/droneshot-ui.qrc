@@ -6,8 +6,6 @@
         <file>qml/modules/SignalBar/qmldir</file>
         <file>qml/modules/StandardPopup/popup.qml</file>
         <file>qml/modules/StandardPopup/qmldir</file>
-        <file>qml/modules/LegalPopup/popup.qml</file>
-        <file>qml/modules/LegalPopup/qmldir</file>
         <file>resources/legal-notices.txt</file>
         <file>qml/modules/File/module.js</file>
         <file>qml/modules/File/qmldir</file>
@@ -18,5 +16,7 @@
         <file>resources/images/logo-medium.png</file>
         <file>qml/modules/PowerSwitch/switch.qml</file>
         <file>qml/modules/PowerSwitch/qmldir</file>
+        <file>qml/modules/AboutPopup/popup.qml</file>
+        <file>qml/modules/AboutPopup/qmldir</file>
     </qresource>
 </RCC>
