@@ -1,15 +1,11 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.3
-import QtQuick.Controls.Universal 2.2
+import QtQuick.Controls.Universal 2.3
 
-Item {
+Control {
     id: root
     onStateChanged: update()
 
-    property color powerOffActiveColor: "#666666"
-    property color powerOffColor: "#333333"
-    property color powerOnActiveColor: Universal.color(Universal.Green)
-    property color powerOnColor: Universal.color(Universal.Emerald)
     property bool state: false
 
     signal powerOff;
@@ -27,12 +23,12 @@ Item {
         if (state) {
             button.text = qsTr("ON")
             button.background.color = Qt.binding(function () {
-                return button.down ? powerOnActiveColor : powerOnColor
+                return button.down ? Universal.color(Universal.Green) : Universal.color(Universal.Emerald)
             })
         } else {
             button.text = qsTr("OFF")
             button.background.color = Qt.binding(function () {
-                return button.down ? powerOffActiveColor : powerOffColor
+                return button.down ? button.Universal.baseMediumLowColor : button.Universal.baseLowColor
             })
         }
     }
